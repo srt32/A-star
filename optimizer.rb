@@ -46,7 +46,6 @@ class Optimizer
     nodes = []
     curr_x = current_position[0]
     curr_y = current_position[1]
-    # want to add/subtract unless the node is at max/min
     max_size = matrix.resistances.length # MOVE INTO MATRIX CLASS
     unless curr_x == max_size
       nodes << [curr_x + 1, curr_y]
