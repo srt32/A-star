@@ -17,7 +17,7 @@ class Matrix
 
   def create_nodes
     @resistances.map.with_index do |row,r|
-      row.map.with_index do |cell,c|
+      row.map.with_index do |_,c|
         Node.new(:resistance => @resistances[r][c])
       end
     end
