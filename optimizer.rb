@@ -11,19 +11,13 @@ class Optimizer
     @start_node = start_node
     @goal_node = goal_node
     @matrix = matrix
-    @path = []
+    @path = [start_node]
   end
 
-  def least_cost_path
-    path << start_node
-    starting_node = @start_node
-    loop do
-      next_node = best_next_node(starting_node)
-      path << next_node
-      starting_node = next_node
-      break if starting_node == goal_node
-    end
-    path
+  def least_cost_path(starting_node = @start_node)
+    path << next_node = best_next_node(starting_node)
+    return path if next_node == goal_node
+    least_cost_path(next_node)
   end
 
   def best_next_node(current_position)
