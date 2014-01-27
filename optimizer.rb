@@ -28,16 +28,9 @@ class Optimizer
 
   def best_next_node(current_position)
     adjacent_nodes = adjacent_nodes_for(current_position)
-
     return goal_node if adjacent_nodes.include?(goal_node)
-
-    available_adjacent_nodes = adjacent_nodes.reject do |node|
-      path.include?(node)
-    end
-
-    next_best_node = available_adjacent_nodes.min_by do |node|
-      matrix.node_at(node[0],node[1]).resistance
-    end
+    avail_adjacent_nodes = adjacent_nodes.reject {|node| path.include?(node) }
+    next_best_node = avail_adjacent_nodes.min_by {|node| resistance_for(node) }
   end
 
   def adjacent_nodes_for(current_position)
@@ -55,6 +48,12 @@ class Optimizer
       nodes << [curr_x + 1, curr_y + 1]
     end
     nodes
+  end
+
+  private
+
+  def resistance_for(node)
+    matrix.node_at(node[0],node[1]).resistance
   end
 
 end
