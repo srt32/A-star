@@ -30,7 +30,7 @@ class Optimizer
     adjacent_nodes = adjacent_nodes_for(current_position)
     return goal_node if adjacent_nodes.include?(goal_node)
     avail_adjacent_nodes = adjacent_nodes.reject {|node| path.include?(node) }
-    next_best_node = avail_adjacent_nodes.min_by {|node| resistance_for(node) }
+    avail_adjacent_nodes.min_by {|node| resistance_for(node) }
   end
 
   def adjacent_nodes_for(current_position)
