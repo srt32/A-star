@@ -5,19 +5,17 @@ class Optimizer
               :goal_node,
               :matrix
 
-  attr_accessor :visited_nodes
+  attr_accessor :path
 
   def initialize(matrix, start_node, goal_node)
     @start_node = start_node
     @goal_node = goal_node
     @matrix = matrix
-    @visited_nodes = []
+    @path = []
   end
 
   def least_cost_path
-    path = []
     path << start_node
-    visited_nodes << start_node
     starting_node = @start_node
     loop do
       next_node = best_next_node(starting_node)
@@ -34,7 +32,7 @@ class Optimizer
     return goal_node if adjacent_nodes.include?(goal_node)
 
     available_adjacent_nodes = adjacent_nodes.reject do |node|
-      visited_nodes.include?(node)
+      path.include?(node)
     end
 
     next_best_node = available_adjacent_nodes.min_by do |node|
