@@ -1,4 +1,4 @@
 A-star
 ======
 
-An WIP experiment in implementing A* in Ruby
+A WIP experiment in implementing A* in Ruby
