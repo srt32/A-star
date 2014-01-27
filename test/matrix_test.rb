@@ -1,8 +1,8 @@
 gem 'minitest'
 require 'minitest/autorun'
 require 'minitest/pride'
-require_relative 'matrix'
-require_relative 'node'
+require_relative '../lib/matrix'
+require_relative '../lib/node'
 
 class MatrixTest < MiniTest::Test
 

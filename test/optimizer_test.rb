@@ -1,8 +1,8 @@
 gem 'minitest'
 require 'minitest/autorun'
 require 'minitest/pride'
-require_relative 'optimizer'
-require_relative 'matrix'
+require_relative '../lib/optimizer'
+require_relative '../lib/matrix'
 
 class OptimizerTest < MiniTest::Test
 
